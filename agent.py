@@ -1,4 +1,5 @@
-import os, json, env
+import os, json
+from dotenv import load_dotenv
 import datetime
 from google import genai
 from google.genai import types
