@@ -5,7 +5,9 @@ jobs:
   scrape-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write        # To push the new branch
+      pull-requests: write   # To open the PR
+      id-token: write  
     steps:
       - name: Checkout
         uses: actions/checkout@v4
