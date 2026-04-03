@@ -1,4 +1,4 @@
-name: Weekly README.md update
+name: Agent dev
 on:
   workflow_dispatch: # Allows you to run it manually from the Actions tab
 jobs:
@@ -24,11 +24,25 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: uv run agent.py
+
+      - name: Open Review PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: ai-full-build
+          title: "🤖 Build Proposal: Ready for Human Review"
+          body: |
+            The AI has generated a complete project skeleton in `/proposed_build` 
+            based on your README update. 
+            
+            **Review Checklist:**
+            - [ ] Check `Makefile` for security.
+            - [ ] Verify `pyproject.toml` versions.
+            - [ ] Run `docker build` to test.
       
-      - name: Commit and Push
-        run: |
-          git config --global user.name "GitHub Action Bot"
-          git config --global user.email "actions@github.com"
-          git add README.md
-          git commit -m "docs: weekly stack refresh ($GITHUB_RUN_ID)" || echo "No changes found"
-          git push
+      # - name: Commit and Push
+      #   run: |
+      #     git config --global user.name "GitHub Action Bot"
+      #     git config --global user.email "actions@github.com"
+      #     git add README.md
+      #     git commit -m "docs: weekly stack refresh ($GITHUB_RUN_ID)" || echo "No changes found"
+      #     git push
