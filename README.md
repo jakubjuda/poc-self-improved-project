@@ -1,2 +1,8 @@
 # poc-self-improved-project
-An example of a project that will be developed by llm itself and the human will only verify the changes
+**Goal:** Build a vendor-neutral LLM ETL/ELT pipeline.
+**Requirements:**
+- Use **Polars** for data processing.
+- Use **UV** for dependency management.
+- Standardize on **OCI-compliant** Dockerfiles.
+- Output data to a local **DuckDB** instance.
+- Include a **Makefile** for one-click setup.
