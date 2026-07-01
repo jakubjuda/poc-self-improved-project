@@ -1,4 +1,4 @@
 [project]
 name = "poc-self-improved-project"
 version = "0.1.0"
-dependencies = ["google-genai>=1.70.0", "python-dotenv",]
+dependencies = ["google-genai>=2.10.0", "python-dotenv>=1.2.2",]
